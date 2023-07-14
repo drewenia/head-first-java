@@ -29,7 +29,7 @@ elde edersiniz. Derleyici tarafından oluşturulan Party.class dosyası, bytecod
 
 3 - Output (Code) Compiled Code : Party.class
 
-![img.png](Chapter1Images/img.png)
+![img.png](../Images/Chapter1Images/img.png)
 
 4 - Virtual Machines
 
@@ -38,13 +38,13 @@ anlayabileceği bir formata çevirir ve programınızı çalıştırır.
 
 ### Code structure in java
 
-![img_1.png](Chapter1Images/img_1.png)
+![img_1.png](../Images/Chapter1Images/img_1.png)
 
 Bir kaynak kodu dosyası (.java uzantılı) bir sınıf tanımını içerir. Sınıf, programınızın bir parçasını temsil eder,
 ancak çok küçük bir uygulama için sadece tek bir sınıf gerekebilir. Sınıf, bir çift süslü parantez içine
 yerleştirilmelidir.
 
-![img_2.png](Chapter1Images/img_2.png)
+![img_2.png](../Images/Chapter1Images/img_2.png)
 
 * Bir sınıfı bir source file'a yerleştirin.
 * Metodları bir sınıfa yerleştirin.
@@ -54,12 +54,12 @@ Bir sınıfın bir veya daha fazla methodu bulunur. Dog sınıfında, bark metod
 talimatlar yer alır. Metodlarınız bir sınıfın içinde (diğer bir deyişle, sınıfın süslü parantezleri içinde)
 tanımlanmalıdır.
 
-![img_3.png](Chapter1Images/img_3.png)
+![img_3.png](../Images/Chapter1Images/img_3.png)
 
 Bir metodun içine, o metodun nasıl gerçekleştirileceğine dair talimatlarınızı yazın. Metod kodu temel olarak bir dizi
 statements'dan oluşur ve şu an için bir metodun bir function veya procedure gibi düşünülebileceğini düşünebilirsiniz.
 
-![img_4.png](Chapter1Images/img_4.png)
+![img_4.png](../Images/Chapter1Images/img_4.png)
 
 ### Anatomy of class
 
@@ -76,7 +76,7 @@ Sonra, JVM main metodunun süslü parantezleri { } arasındaki her şeyi çalı�
 ve en az bir main metoda (her sınıf için ayrı bir main değil, sadece uygulama başına bir main) sahip olması
 gerekmektedir.
 
-![img_5.png](Chapter1Images/img_5.png)
+![img_5.png](../Images/Chapter1Images/img_5.png)
 
 ### Writing a class with a main
 
