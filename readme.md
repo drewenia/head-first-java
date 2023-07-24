@@ -11,3 +11,5 @@ Chapter 5 - [Writing A Program](MarkdownFiles/writingAProgram.md)
 Chapter 6 - [Get To Know The Java API](MarkdownFiles/getTheKnowTheJavaApi.md)
 
 Chapter 7 - [Inheritance And Polymorphism](MarkdownFiles/inheritanceAndPolymorphism.md)
+
+Chapter 8 - [Interfaces and Abstract classes](MarkdownFiles/interfacesAndAbstractClasses.md)
