@@ -141,10 +141,15 @@ noktada yer alır. Prepcode genellikle üç bölüm içerir: instance variables 
 mantığı. Prepcode'un en önemli kısmı method mantığıdır, çünkü ne olması gerektiğini tanımlar ve daha sonra gerçek method
 kodunu yazdığımızda nasıl yapılacağını çeviririz.
 
+**INSTANCA VARIABLES BILDIRIMLERI**
+
 DECLARE - locationCells adında bir int dizisi tanımlayarak konum hücrelerini tutun.
+
 DECLARE - numOfHits adında bir int variable tanımlayarak hit sayısını tutun ve 0 olarak ayarlayın.
 
 **----------------------------------------------------------------------------------**
+
+**METHOD BILDIRIMLERI**
 
 DECLARE - checkYourself() adında bir method tanımlayın. Bu method, kullanıcının tahminini temsil eden bir String
 parametre almalıdır ("1", "3", vb.), bu tahmini kontrol etmeli ve "hit" (isabet), "miss" (kaçırma) veya "kill" (öldürme)
@@ -154,6 +159,8 @@ DECLARE - setLocationCells() adında bir setter methodu tanımlayın. Bu method,
 int dizisi almalıdır (2, 3, 4, vb.).
 
 **----------------------------------------------------------------------------------**
+
+**METHOD MANTIĞI**
 
     METHOD - String checkYourself(String userGuess)
         GET - Kullanıcının tahminini String bir parametre olarak alın.
@@ -199,7 +206,7 @@ methodunun doğru şekilde çalışması için setLocationCells() methodunu da u
 Aşağıdaki checkYourself() methodu için prepcode'a dikkatlice bakın (setLocationCells() methodu basit bir setter yöntemi
 olduğundan endişelenmiyoruz, ancak 'gerçek' bir uygulamada daha sağlam bir 'setter' yöntemi isteyebilir ve bunu test
 etmek isteyebiliriz). Sonra kendinize şu soruyu sorun: "Eğer checkYourself() methodu uygulanmış olsaydı, methodun doğru
-çalıştığını kanıtlayabilecek hangi test kodunu yazabilirim?"
+çalıştığını kanıtlayabilecek hangi test kodunu yazabilirdim?"
 
 ### TEST CODE
 
@@ -294,8 +301,6 @@ public class SimpleDotCom {
             result = "kill";
         }
 
-        System.out.println(result);
-
         return result;
     }
 }
@@ -379,33 +384,33 @@ Gerçek Game class'ımızı halen yazmadık ve programımızı tam olarak tamaml
 
 Bazı şeyleri inançla kabul etmeniz gerekecek. Örneğin, "KOMUT SATIRINDAN kullanıcı girişi AL" şeklinde bir prep code
 satırımız var. Size söyleyeyim, bu şu anda baştan uygulamak istediğimizden biraz daha fazla. Ama neyse ki, nesne
-yönelimli kullanıyoruz. Ve bu da size diğer bir sınıf/nesne üzerinden bir şeyler yapmasını isteme imkanı verirken, nasıl
-yapıldığıyla ilgilenmenize gerek kalmaz. Prep code yazarken, ihtiyaç duyduğunuz herhangi bir şeyi bir şekilde
-yapabileceğinizi varsaymanız gerektiğini unutmayın, böylece tüm zihin gücünüzü mantığı çözmeye odaklayabilirsiniz.
+yönelimli paradigmayı kullanıyoruz. Ve bu da size diğer bir sınıf/nesne üzerinden bir şeyler yapmasını isteme imkanı
+verirken, nasıl yapıldığıyla ilgilenmenize gerek kalmaz. Prep code yazarken, ihtiyaç duyduğunuz herhangi bir şeyi bir
+şekilde yapabileceğinizi varsaymanız gerektiğini unutmayın, böylece tüm zihin gücünüzü mantığı çözmeye
+odaklayabilirsiniz.
 
 ```
-    METHOD public static void main (String[] args)
-        DECLARE -  Kullanıcının tahmin sayısını tutmak için numOfGuesses adında bir tamsayı variable'i
-        MAKE - SimpleDotCom sınıfına ait instance
-        COMPUTE - Başlangıç konumunun hücre pozisyonunu temsil etmek için 0 ile 4 arasında rastgele bir sayıya 
-        ihtiyacınız var
-        MAKE - Rastgele oluşturulan sayıyı, sayının bir fazlasını ve sayının iki fazlasını içeren 3 tamsayıdan oluşan 
-        int array oluştur
-        INVOKE - SimpleDotCom nesnesi üzerinde ki setLocalionCells invoke et
-        DECLARE - Oyunun durumunu temsil eden, isAlive adında bir boolean variable. Onu true olarak set et
-        
-        WHILE - dotcom stillAlive ise (isAlive==true)
-            GET - Command line üzerinden user input'u al
-            // CHECK user'in guess(tahminini kontrol et)
-            INVOKE - SimpleDotCom instance'i uzerinden checkYourSelf() methodunu kullan
-            INCREMENT - numOfGuesses variable'ini artır
-            //CHECK
-            IF - result "kill" ise
-                SET - isAlive to false
-                PRINT - user'in guess'lerinin kac adede çıktığını print et
-            END IF
-        END WHILE
-    END METHOD
+METHOD public static void main (String[] args)
+    DECLARE -  Kullanıcının tahmin sayısını tutmak için numOfGuesses adında bir tamsayı variable'i
+    MAKE - SimpleDotCom sınıfına ait instance
+    COMPUTE - Başlangıç konumunun hücre pozisyonunu temsil etmek için 0 ile 4 arasında rastgele bir sayıya 
+    ihtiyacınız var
+    MAKE - Rastgele oluşturulan sayıyı, sayının bir fazlasını ve iki fazlasını içeren 3 integer'dan oluşan int array oluştur
+    INVOKE - SimpleDotCom nesnesi üzerinde ki setLocalionCells invoke et
+    DECLARE - Oyunun durumunu temsil eden, isAlive adında bir boolean variable. Onu true olarak set et
+    
+    WHILE - dotcom stillAlive ise (isAlive==true)
+        GET - Command line üzerinden user input'u al
+        // CHECK user'in guess(tahminini kontrol et)
+        INVOKE - SimpleDotCom instance'i uzerinden checkYourSelf() methodunu kullan
+        INCREMENT - numOfGuesses variable'ini artır
+        //CHECK
+        IF - result "kill" ise
+            SET - isAlive to false
+            PRINT - user'in guess'lerinin kac adede çıktığını print et
+        END IF
+    END WHILE
+END METHOD
 ```
 
 **BULLET POINTS**
@@ -424,7 +429,7 @@ yapabileceğinizi varsaymanız gerektiğini unutmayın, böylece tüm zihin güc
 * Bir variableden 1 çıkarmak için pre/post decrement operatörünü kullanın (x--;)
 * Bir String'in int değerini elde etmek için Integer.parseInt() kullanın.
 * Integer.parseInt(), String'in bir rakamı temsil ettiği durumlarda çalışır ("0", "1", "2", vb.).
-* Döngüyü erken terk etmek için (örneğin, boolean test koşulu hala doğru olsa bile) break kullanın.
+* Döngüyü erken terk etmek için (örneğin, boolean test koşulu hala doğru olsa bile) "break" kullanın.
 
 ### REAL CODE
 
@@ -440,19 +445,19 @@ public class SimpleDotComGame {
         // DECLARE -  Kullanıcının tahmin sayısını tutmak için numOfGuesses adında bir tamsayı variable'i
         int numOfGuess = 0;
 
-        // Bu, kullanıcı inputu almak için bir method içeren özel bir sınıftır. Şimdilik, onu Java'nın bir parçasıymış
-        // gibi düşünün.
+        // Bu, kullanıcı inputu almak için bir method içeren özel bir sınıftır. Şimdilik, onu Java'nın bir 
+        // parçasıymış gibi düşünün.
         GameHelper gameHelper = new GameHelper();
 
         // MAKE - SimpleDotCom sınıfına ait instance
         SimpleDotCom simpleDotCom = new SimpleDotCom();
 
-        //COMPUTE - Başlangıç konumunun hücre pozisyonunu temsil etmek için 0 ile 4 arasında rastgele bir sayıya
-        //ihtiyacımız var
+        // COMPUTE - Başlangıç konumunun hücre pozisyonunu temsil etmek için 0 ile 4 arasında rastgele bir sayıya
+        // ihtiyacımız var
         int random = (int) (Math.random() * 5);
 
-        // MAKE - Rastgele oluşturulan sayıyı, sayının bir fazlasını ve sayının iki fazlasını içeren 3 tamsayıdan oluşan
-        // int array oluştur
+        // MAKE - Rastgele oluşturulan sayıyı, sayının bir fazlasını ve sayının iki fazlasını içeren 
+        // 3 tamsayıdan oluşan int array oluştur
         int[] locations = {random, random + 1, random + 2};
 
         // INVOKE - SimpleDotCom nesnesi üzerinde ki setLocalionCells invoke et
@@ -508,10 +513,8 @@ bastıktan sonra inputu okuyan ve sonucu bir String olarak döndüren bir method
 **One Last class: GameHelper**
 
 SimpleDotCom sınıfını oluşturduk. Game sınıfını oluşturduk. Tek kalan şey utility sınıf - getUserInput() methoduna sahip
-olan sınıf. Şu anda açıklamak istediğimizden daha fazla komut satırı inputu almak için kod var. Bu konu daha sonra ele
-alınması daha iyi olan çok fazla konuyu açar. (Daha sonra, yani 14. bölümde.) Aşağıdaki kodu kopyalayın ve GameHelper
-adında bir sınıf olarak derleyin. Üç sınıfı da (SimpleDotCom, SimpleDotComGame, GameHelper) aynı dizine koyun ve çalışma
-diziniz yapın.
+olan sınıf. Aşağıdaki kodu kopyalayın ve GameHelper adında bir sınıf olarak derleyin. Üç sınıfı da (SimpleDotCom,
+SimpleDotComGame, GameHelper) aynı dizine koyun ve çalışma diziniz yapın.
 
 ```
 public class GameHelper {
@@ -655,7 +658,7 @@ Derleyici bunu nasıl görür :
 * nameArray'deki bir sonraki değeri name'e atar.
 * array'de halen eleman varken tekrarla
 
-**Bölüm 1: İterasyon variablei bildirimi**
+**Bölüm 1: İterasyon variable bildirimi**
 
 Bu bölümü, döngü gövdesi içinde kullanmak üzere bir variable'i bildirmek ve başlatmak için kullanın. Her döngü adımında,
 bu variable koleksiyondan farklı bir öğeyi tutacaktır. Bu variable'in türü, array'deki öğelerle uyumlu olmalıdır!
@@ -719,7 +722,7 @@ int x = (int) y; // x = 42 değerini alır
 ```
 
 Cast operatörünü eklemek, derleyiciye y'nin değerini almasını, int boyutuna indirmesini ve kalan değeri x'e atamasını
-söyler. Eğer y'nin değeri x'in maksimum değerinden büyükse, kalan değer tuhaf bir (ancak hesaplanabilir*) sayı
+söyler. Eğer y'nin değeri x'in maksimum değerinden büyükse, kalan değer tuhaf bir (ancak hesaplanabilir) sayı
 olacaktır:
 
 ```
