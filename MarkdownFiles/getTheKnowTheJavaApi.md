@@ -4,12 +4,11 @@
 
 Java, yüzlerce önceden oluşturulmuş sınıf ile birlikte gelir. Java API olarak bilinen Java kütüphanesinde ihtiyacınız
 olanı nasıl bulacağınızı biliyorsanız, tekerleği yeniden icat etmeniz gerekmez. Daha iyi yapmanız gereken şeyler vardır.
-Kod yazacaksanız, sadece uygulamanız için gerçekten özel olan kısımları yazmanız daha iyidir. Her akşam saat 5'te çıkıp
-giden o programcıları biliyor musunuz? Sabah 10'a kadar bile ortaya çıkmayanlar mı? Onlar Java API kullanır. Ve yaklaşık
-sekiz sayfa sonra, siz de kullanacaksınız. Core Java kütüphanesi, büyük ölçüde önceden oluşturulmuş kodlardan oluşan bir
-array sınıfı içerir ve bunları kullanarak kendi programınızı inşa etmek için birer yapı bloğu gibi kullanabilirsiniz. Bu
-kitapta kullandığımız Hazır Java, baştan oluşturmanız gerekmeyen ancak yine de yazmanız gereken kodlardır. Java API,
-yazmanız bile gerekmeyen kodlarla doludur. Yapmanız gereken tek şey, onu nasıl kullanacağınızı öğrenmektir.
+Kod yazacaksanız, sadece uygulamanız için gerçekten özel olan kısımları yazmanız daha iyidir.
+
+Core Java kütüphanesi, büyük ölçüde önceden oluşturulmuş kodlardan oluşan bir array sınıfı içerir ve bunları kullanarak
+kendi programınızı inşa etmek için birer yapı bloğu gibi kullanabilirsiniz. Java API, yazmanız bile gerekmeyen kodlarla
+doludur. Yapmanız gereken tek şey, onu nasıl kullanacağınızı öğrenmektir.
 
 **In our last chapter, we left you with the cliff-hanger. A bug.**
 
@@ -47,12 +46,12 @@ DotCom'un, DotCom nesnesinin hücre konumlarını tutan bir int array olarak tan
 
 1 - Option One
 
-İkinci bir array oluşturabiliriz ve her bir isabeti bu ikinci array'de saklayabiliriz. Daha sonra, yeni bir isabet
+İkinci bir array oluşturabiliriz ve her bir "hit'i" bu ikinci array'de saklayabiliriz. Daha sonra, yeni bir isabet
 olduğunda ikinci array'i kontrol ederek daha önce vurulup vurulmadığını kontrol edebiliriz.
 
 ![img_2.png](../Images/Chapter6Images/img_2.png)
 
-Birinci seçenek çok hantal. Seçenek bir, beklediğinizden daha fazla iş gibi görünüyor. Kullanıcı her bir isabet
+Option One çok hantal. Option One, beklediğinizden daha fazla iş yapıyor gibi görünüyor. Kullanıcı her bir "hit"
 yaptığında, ikinci array (hitCells array'i) durumunu değiştirmeniz gerekmektedir. Ancak önce hitCells array'ini kontrol
 etmeniz gerekmektedir, böylece o hücrenin zaten vurulup vurulmadığını kontrol edebilirsiniz. Bu method çalışabilir,
 ancak daha iyi bir çözüm olmalı...
@@ -64,31 +63,31 @@ array'ini kendisi üzerinde değişiklik yaparak isabet sağlanan hücreleri -1 
 
 ![img_3.png](../Images/Chapter6Images/img_3.png)
 
-İkinci seçenek biraz daha iyi, ancak yine de oldukça hantal
+Option Two biraz daha iyi, ancak yine de oldukça hantal
 
-İkinci seçenek, birinci seçeneğe göre biraz daha az hantal olsa da çok verimli değil. Hala, bir veya daha fazla geçersiz
-olduğu için ("hit" ve -1 değerine sahip) tüm üç yuvayı (array konumlarını) döngüden geçirmeniz gerekecek. Daha iyi
+Option Two, Option One'a göre biraz daha az hantal olsa da çok verimli değil. Hala, bir veya daha fazla geçersiz
+olduğu için ("hit" ve -1 değerine sahip) tüm üç cell'i (array konumlarını) döngüden geçirmeniz gerekecek. Daha iyi
 bir şey olmalı...
 
-3 - Option three
+3 - Option Three
 
-Üçüncü seçenekte, her hücre konumu vurulduğunda sileriz ve ardından array'i daha küçük hale getirmek için değiştiririz.
+Option Three, her locationCell vurulduğunda sileriz ve ardından array'i daha küçük hale getirmek için değiştiririz.
 Ancak array'ler boyutlarını değiştiremez, bu yüzden yeni bir array oluşturup eski array'deki kalan hücreleri yeni ve
 daha küçük array'e kopyalamamız gerekiyor.
 
 ![img_4.png](../Images/Chapter6Images/img_4.png)
 
-Array küçülebilseydi üçüncü seçenek çok daha iyi olurdu, böylece yeni bir küçük array oluşturmamız, kalan değerleri
+Array küçülebilseydi Option Three çok daha iyi olurdu, böylece yeni bir küçük array oluşturmamız, kalan değerleri
 kopyalamamız ve referansı yeniden atamamız gerekmezdi
 
 **Şu şekilde değiştirebilseydik çok güzel olurdu;**
 
 ```
-REPEAT -> kalan konum cell'leri ile tekrar et
-    // COMPARE -> Kullanıcının tahminini konum hücresiyle KARŞILAŞTIR
+REPEAT -> kalan locationCell'leri döngü ile tekrar et
+    // COMPARE -> Kullanıcının tahminini locationCell ile KARŞILAŞTIR
     IF -> kullanıcının tahmini eşleşirse
         REMOVE -> bu cell'i array'den REMOVE ET
-        // FIND OUT -> SON konum hücresi olup olmadığını BUL
+        // FIND OUT -> SON locationCell olup olmadığını BUL
         IF -> array empty ise "kill" return et
         ELSE -> bu bir "kill değil", "hit" return et
         END IF
@@ -99,7 +98,7 @@ END REPEAT
 
 Keşke bir şey çıkarıldığında küçülebilen bir array bulabilsem. Ve her bir öğeyi kontrol etmek için döngüden geçmek
 yerine, sadece aradığınız şeyi içerip içermediğini sormak için kullanabileceğiniz bir array olsa. Ve doğrudan öğeleri,
-tam olarak hangi yuvada olduklarını bilmek zorunda kalmadan çıkarabilseydiniz. Bu harika olurdu. Ancak biliyorum ki bu
+tam olarak hangi cell'de olduklarını bilmek zorunda kalmadan çıkarabilseydiniz. Bu harika olurdu. Ancak biliyorum ki bu
 sadece bir hayal...
 
 **Wake up and smell the Library**
@@ -127,7 +126,7 @@ Egg egg = new Egg();
 myList.add(egg);
 ```
 
-Şimdi ArrayList, Egg nesnesini tutmak için bir "box" büyütür
+Şimdi ArrayList, Egg nesnesini tutmak için bir "box" büyütülür
 
 3 - Put another thing in it
 
@@ -136,7 +135,7 @@ Egg egg2 = new Egg();
 myList.add(egg2);
 ```
 
-Arraylist 2. egg nesnesini tutmak için bir kez daha büyür
+Arraylist 2. egg nesnesini tutmak için bir kez daha büyütülür
 
 4 - Find out how many things are in it
 
@@ -334,17 +333,17 @@ sınıfı (DotComBust) ve oyun yardımcı sınıfı (şu anda üzerinde endişel
 
 A - DotCom Class;
 
-* Name isminde bir variable ekle bu değişken DotCom'un adını ("Pets.com", "Go2.com", vb.) tutacaktır. Böylece her bir
+* "name" isminde bir variable ekle bu değişken DotCom'un adını ("Pets.com", "Go2.com", vb.) tutacaktır. Böylece her bir
   DotCom, öldürüldüğünde (karşı sayfadaki çıktı ekranına bakınız), adını yazdırabilir.
 
 B - DotComBust class (the game);
 
 * 3 dotcom nesnesi oluşturun
-* Her bir DotCom'a bir isim verin. Her DotCom instance'i üzerinde bir setter methodu çağırarak, DotCom kendi adını name
-  variable'ina atayabilir.
+* Her bir DotCom'a bir "name" verin. Her DotCom instance'i üzerinde bir setter methodu çağırarak, DotCom kendi adını "
+  name" variable'ina atayabilir.
 * Tüm üç DotCom'u tek bir satır yerine bir ızgaraya yerleştirin. Bu adım, DotCom'ları rastgele yerleştireceğimiz için
   öncekinden çok daha karmaşık hale geliyor. Matematikle uğraşmak istemediğimiz için, DotCom'lara konum atama
-  algoritmasını GameHelper (Hazır) sınıfına yerleştiriyoruz.
+  algoritmasını GameHelper sınıfına yerleştiriyoruz.
 * Tek bir DotCom yerine kullanıcının tahminini üç DotCom ile kontrol edin.
 * Oyunu oynamaya devam edin (yani kullanıcının tahminlerini kabul edin ve kalan DotCom'larla kontrol edin) ta ki canlı
   DotCom kalmayana kadar.
@@ -405,8 +404,8 @@ METHOD : void setUpGame()
   ADD DotComs'ları dotComList ArrayList'ine ekle
   REPEAT dotComsList array'indeki DotCom nesnelerinin her biri ile
     
-    CALL Bu DotCom için rastgele seçilmiş bir konum (7 X 7 ızgara üzerinde dikey veya yatay olarak hizalanmış üç hücre) 
-    elde etmek için helper nesne üzerindeki placeDotCom() methodunu ÇAĞIRIN.
+    CALL Bu DotCom için rastgele seçilmiş bir konum (7 X 7 ızgara üzerinde dikey veya yatay olarak hizalanmış üç 
+    hücre) elde etmek için helper nesne üzerindeki placeDotCom() methodunu ÇAĞIRIN.
     
     SET placeDotCom() çağrısının sonucuna göre her DotCom için konumu set et
     
@@ -423,7 +422,10 @@ END METHOD
 METHOD : void checkUserGuess(String userGuess)
   // herhangi bir DotCom'da bir hit (ve kill) olup olmadığını öğrenin
   INCREMENT : numOfGuesses değişkenindeki kullanıcı tahminlerinin sayısını artır
-  SET : Kullanıcının tahmininin yanlış olacağını varsayarak yerel sonuç değişkenini (bir String) "miss" olarak ayarlayın
+  
+  SET : Kullanıcının tahmininin yanlış olacağını varsayarak yerel sonuç değişkenini (bir String) "miss" 
+  olarak ayarlayın
+  
   REPEAT : dotComsList array'indeki her bir DotObject ile TEKRARLA
     EVALUATE : DotCom nesnesinin checkYourself() yöntemini çağırarak kullanıcının tahminini DEĞERLENDİRİN
     SET : Result variable'ini uygunsa "hit" veya "kill" olarak ayarlayın
@@ -816,7 +818,7 @@ yapıları, veritabanı işlemleri vb.).
 
 İkinci olarak, paketler isim alanı (namescoping) sağlar ve eğer siz ve şirketinizdeki 12 başka programcı aynı isimde bir
 sınıf oluşturmaya karar verirse, çakışmaları önlemek için kullanılabilir. Diyelim ki sizin bir Set (Küme) adında bir
-sınıfınız var ve başka biri (Java API dahil) de Set adında bir sınıfı var. JVM'ye hangi Set sınıfını kullanmak
+sınıfınız var ve başka birinin de (Java API dahil) de Set adında bir sınıfı var. JVM'ye hangi Set sınıfını kullanmak
 istediğinizi bildirmeniz gerekecektir.
 
 Üçüncü olarak, paketler kodunuzu diğer sınıflardan gelen erişime karşı koruma düzeyi sağlar. Böylece, yazdığınız kodu
