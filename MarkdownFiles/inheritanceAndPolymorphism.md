@@ -4,7 +4,7 @@ Programlarınızı geleceği düşünerek planlayın. Eğer başkasının kolayc
 can sıkıcı son dakika özellik değişiklikleri için esnek kodlar yazabilseydiniz, bununla ilgilenir misiniz?
 
 Polimorfizm Planına katıldığınızda, daha iyi sınıf tasarımı için 5 adımı, polimorfizm için 3 ipucunu, esnek kodlar
-oluşturmak için 8 methodi öğreneceksiniz ve şimdi harekete geçerseniz, inheritance kullanmanın 4 ipucunu içeren bonus
+oluşturmak için 8 methodu öğreneceksiniz ve şimdi harekete geçerseniz, inheritance kullanmanın 4 ipucunu içeren bonus
 bir ders de alacaksınız.
 
 ### Chain Wars revisited
@@ -14,7 +14,7 @@ Sandalye Savaşları Yeniden Ziyaret Edildi...
 Hatırlayın, 2. bölümde Larry (prosedürel adam) ve Brad (OO adam) Aeron sandalyesi için yarışıyorlardı. Inheritance'in
 temellerini gözden geçirmek için o hikayenin birkaç parçasına bakalım.
 
-LARRY: Yinelemeli kodun var! Rotate işlemi dört şekil nesnesinin hepsinde var. Bu aptalca bir tasarım. Dört farklı "
+LARRY: Yinelemeli kodun var! Rotate işlemi dört Shape nesnesinin hepsinde var. Bu aptalca bir tasarım. Dört farklı "
 rotate" methodunu korumak zorundasın. Bu nasıl iyi olabilir ki?
 
 BRAD: Oh, galiba son tasarımı görmedin. Gel, sana OO inheritance'inin nasıl çalıştığını göstereyim, Larry. Dördünün de
@@ -32,7 +32,7 @@ Ardından diğer dört şekil sınıfını yeni "Shape" (Şekil) sınıfına ba�
 ![img_2.png](../Images/Chapter7Images/img_2.png)
 
 "Square, Shape sınıfından inheritance alır", "Circle, Shape sınıfından inheritance alır" ve benzeri şekilde
-okuyabilirsiniz. Daha sonra diğer shape'lerden "rotate()" ve "playSound()" methodlerini kaldırdım, böylece artık sadece
+okuyabilirsiniz. Daha sonra diğer shape'lerden "rotate()" ve "playSound()" methodlarını kaldırdım, böylece artık sadece
 bir kopyayı korumamız gerekiyor.
 
 "Shape" sınıfı, diğer dört sınıfın super class'ıdır. Diğer dört sınıf ise "Shape" sınıfının sub class'larıdır. Alt
@@ -58,8 +58,7 @@ davranışını değiştirebilir veya geliştirebilir.
 inheritance alma kavramını anlamak:
 
 inheritance alma ile tasarladığınızda, ortak kodları bir sınıfa koyar ve daha spesifik sınıflara ortak (daha soyut)
-sınıfın onların üst sınıfı olduğunu belirtirsiniz. Bir sınıfın diğerinden inheritance aldığı durumda, alt sınıf, üst
-sınıfı inheritance alır.
+sınıfın onların üst sınıfı olduğunu belirtirsiniz.
 
 Java'da, alt sınıfın üst sınıfı extend ettiğini ifade ederiz. inheritance alma ilişkisi, alt sınıfın üst sınıfın
 üyelerini inheritance aldığı anlamına gelir. "Bir sınıfın üyeleri" dediğimizde, örneğin, instance variables'ları ve
@@ -72,11 +71,11 @@ inheritance aldığı metotları üst sınıf olan SuperHero'dan yeniden tanıml
 
 ![img_4.png](../Images/Chapter7Images/img_4.png)
 
-FriedEggMan için benzersiz davranışa ihtiyaç yok, bu yüzden herhangi bir metodu geçersiz kılmaz (override) edemez.
-SuperHero sınıfında bulunan metotlar ve instance variables'lar FriedEggMan için yeterli olacaktır.
+FriedEggMan için benzersiz davranışa ihtiyaç yok, bu yüzden herhangi bir metodu override etmez. SuperHero sınıfında
+bulunan metotlar ve instance variables'lar FriedEggMan için yeterli olacaktır.
 
 Ancak PantherMan için, kostümü ve özel güçleri için belirli gereksinimler vardır, bu nedenle PantherMan sınıfında
-useSpecialPower() ve putOnSuit() metotları her ikisi de geçersiz kılınır (override).
+useSpecialPower() ve putOnSuit() metotları her ikisi de override edilir
 
 **Instance Variables'lar override edilmez çünkü bunun için bir ihtiyaç yoktur** Instance variables'lar özel bir
 davranışı tanımlamaz, bu nedenle alt sınıf inheritance alınan bir instance variables'in değerini istediği gibi
@@ -208,18 +207,18 @@ sahip. Aynı şekilde Aslan, Kaplan ve Kedi de öyle.
 
 ![img_8.png](../Images/Chapter7Images/img_8.png)
 
-Daha fazla soyutlama fırsatı için, ortak behavior'a ihtiyaç duyan iki veya daha fazla subclasses'ı belirleyerek arayın.
-Bu behavior'ı soyut bir üst sınıfa taşıyarak sınıf hiyerarşisini daha da geliştirebiliriz. Sınıflarımıza baktığımızda,
-Kurt ve Köpek arasında bazı ortak davranışlar olabileceğini ve aynı şekilde Aslan, Kaplan ve Kedi arasında da ortak
-davranışlar olabileceğini görüyoruz.
+Daha fazla abstraction fırsatı için, ortak behavior'a ihtiyaç duyan iki veya daha fazla subclasses'ı belirleyerek arayın
+Bu behavior'ı abstract bir üst sınıfa taşıyarak sınıf hiyerarşisini daha da geliştirebiliriz. Sınıflarımıza
+baktığımızda, Kurt ve Köpek arasında bazı ortak davranışlar olabileceğini ve aynı şekilde Aslan, Kaplan ve Kedi arasında
+da ortak davranışlar olabileceğini görüyoruz.
 
-Hayvanların zaten bir organizasyon hiyerarşisi var (tüm krallık, cins, sınıf şeyi), bu nedenle sınıf tasarımı için en
+Hayvanların zaten bir organizasyon hiyerarşisi var (tüm krallık, cins, sınıf), bu nedenle sınıf tasarımı için en
 uygun seviyeyi kullanabiliriz. Hayvanları biyolojik "aileler" temelinde düzenlemek için bir Feline (Kedi) sınıfı ve bir
 Canine (Köpek) sınıfı oluşturacağız.
 
-Canine (Köpek) sınıfının, sürü halinde hareket etme eğilimlerinden dolayı ortak bir roam() methodi kullanabileceğine
+Canine (Köpek) sınıfının, sürü halinde hareket etme eğilimlerinden dolayı ortak bir roam() methodu kullanabileceğine
 karar veriyoruz. Aynı şekilde, Feline (Kedi) sınıfının da kendi türündekilerden kaçınma eğilimleri nedeniyle ortak bir
-roam() methodi kullanabileceğini görüyoruz. Hipopotam'ın, Animal sınıfından aldığı genel roam() methodini kullanmaya
+roam() methodu kullanabileceğini görüyoruz. Hipopotam'ın, Animal sınıfından aldığı genel roam() methodunu kullanmaya
 devam etmesine izin vereceğiz.
 
 Şimdilik tasarımımız tamamlandı; daha sonra bu konuya tekrar döneceğiz.
@@ -238,7 +237,7 @@ edilip edilmediğine bağlı olarak ilgili sınıfın metodunun çağrılacağı
 ![img_10.png](../Images/Chapter7Images/img_10.png)
 
 Bir nesne referansı üzerinde bir metodu çağırdığınızda, o nesne türü için en spesifik versiyonunu çağırırsınız. Başka
-bir deyişle, en altta olan kazanır! "En altta" ifadesi, inheritance ağacında en altta bulunanı anlamına gelir. Canine (
+bir deyişle, en altta olan kazanır! "En altta" ifadesi, inheritance ağacında en altta bulunan anlamına gelir. Canine (
 Köpek) Animal'dan daha alttadır ve Wolf (Kurt) Canine'den daha alttadır. Bu nedenle, bir Wolf nesnesi üzerinde bir
 methodu çağırmak, JVM'in önce Wolf sınıfında aramaya başlayacağı anlamına gelir. Eğer JVM Wolf sınıfında bir metodun
 versiyonunu bulamazsa, inheritance hiyerarşisini yukarı doğru yürüyerek eşleşen bir sürümü bulana kadar aramaya devam
@@ -248,12 +247,12 @@ eder.
 
 JVM, methodu çağırılan sınıf türünden başlayarak inheritance ağacında yukarı doğru yürümeye başlar (örneğin, önceki
 sayfadaki Kurt örneği gibi). Ancak JVM bir eşleşme bulamazsa ne olur? Eğer JVM, miras ağacında yukarı doğru yürürken
-çağrılan methoda eşleşen bir sürüm bulamazsa, bir çalışma zamanı hatası olan java.lang.AbstractMethodError veya
-java.lang.NoSuchMethodError hatasını fırlatacaktır. Bu durum, method çağrısının uygun bir sürümü bulunamaması durumunda
+çağrılan methodla eşleşen bir sürüm bulamazsa, bir çalışma zamanı hatası olan java.lang.AbstractMethodError veya
+java.lang.NoSuchMethodError hatasını fırlatacaktır. Bu durum, method çağrısının uygun bir sürümü bulamaması durumunda
 gerçekleşir.
 
 Derleyici, belirli bir referans türü için çağrılabilir bir methodun garantili olduğu, ancak bu methodun çalışma
-zamanında hangi sınıftan geldiğini (veya önemsemediğini) belirtmez. Kurt örneğinde, derleyici bir sleep() methodu
+zamanında hangi sınıftan geldiğini (veya önemsemediğini) belirtmez. Wolf örneğinde, derleyici bir sleep() methodu
 kontrol eder, ancak sleep() methodunun aslında Animal sınıfından tanımlandığını ve inheritance alındığını umursamaz.
 Unutmayın ki, bir sınıf bir methodu miras alırsa, o methoda sahiptir. Miras alınan methodun nerede tanımlandığı (yani
 hangi üst sınıfta tanımlandığı), derleyici için fark etmez. Ancak çalışma zamanında JVM her zaman doğru olanı
@@ -262,9 +261,9 @@ seçecektir. Ve doğru olan, o belirli nesne için en spesifik olan sürümdür.
 ### Using IS-A and HAS-A
 
 Hatırlayın, bir sınıf başka bir sınıftan miras aldığında, alt sınıfın üst sınıfı extend ettiğini söyleriz. Bir şeyin
-başka bir şeyi genişletip genişletmemesi gerektiğini anlamak için IS-A testini uygulayabilirsiniz. Üçgen bir Şekil'dir (
-Triangle IS-A Shape), evet, bu çalışır. Kedi bir Kedigil'dir (Cat IS-A Feline), bu da çalışır. Cerrah bir Doktor'dur (
-Surgeon IS-A Doctor), hâlâ uygun. Küvet Banyo'yu genişletir (Tub extends Bathroom), mantıklı görünüyor.
+başka bir şeyi genişletip genişletmemesi gerektiğini anlamak için IS-A testini uygulayabilirsiniz. Triangle IS-A Shape
+evet, bu çalışır. Cat IS-A Feline, bu da çalışır. Surgeon IS-A Doctor, hâlâ uygun. Tub extends Bathroom, mantıklı
+görünüyor.
 
 tasarım yaparken sınıf hiyerarşilerini ve miras ilişkilerini düşünürken "X bir Y'dir (X IS-A Y)" testini uygulamak
 önemlidir. Eğer bu ilişki mantıklı değilse, tasarımınızda bir sorun olabilir. Verdiğiniz örnekte, "Tub IS-A Bathroom"
@@ -275,7 +274,7 @@ Doğru sınıf tasarımı, üst sınıf ile alt sınıflar arasında mantıklı 
 Y'dir" testi hem ileri yönde hem de geri yönde doğru sonuç vermiyorsa, bu sınıflar arasında miras ilişkisinin uygun
 olmadığını gösterir ve başka bir tasarım yaklaşımı düşünülmelidir.
 
-Evet, tamamen doğru. İlişkiyi tersine çevirerek "Bathroom extends Tub" şeklinde düşünürsek, hala doğru çalışmaz ve "
+Evet, tamamen doğru. İlişkiyi tersine çevirerek "Bathroom extends Tub" şeklinde düşünürsek, doğru çalışmaz ve "
 Bathroom IS-A Tub" geçerli bir ifade olmaz.
 
 Bu durumda, Tub ve Bathroom arasında bir ilişki vardır, ancak bu ilişki miras (inheritance) yoluyla değil, HAS-A (sahip
@@ -298,11 +297,15 @@ testini geçer. Bu durumda C sınıfı, hem B'nin hem de B'nin A'yı genişletti
 ![img_13.png](../Images/Chapter7Images/img_13.png)
 
 Canine extends Animal
+
 Wolf extends Canine
+
 Wolf extends Animal
 
 Canine IS-A Animal
+
 Wolf IS-A Canine
+
 Wolf IS-A Animal
 
 Doğru, verilen miras ağacında "Wolf IS-A Animal" veya "Wolf extends Animal" ifadesini her zaman kullanabilirsiniz.
@@ -356,10 +359,10 @@ public void roam(){
 super.roam() call'u roam() methodunun üst sınıftan devralınmış sürümünü çağırır, sonra geri dönerek kendi sınıfına özgü
 kodu çalıştırır
 
-Üst sınıfınızı tasarlayabilirsiniz, böylece onlar, alt sınıflar için çalışacak method uygulamalarını içerir, yine de alt
-sınıfların 'append' kodlarına ihtiyacı olabilir. Alt sınıfınızda, üst sınıfın overriding methoduyla, anahtar kelime "
-super" kullanarak üst sınıfın sürümünü çağırabilirsiniz. Bu, "önce üst sınıfın sürümünü çalıştır, ardından kendi kodumla
-devam et..." demek gibi bir şeydir.
+Üst sınıfınızı tasarlayabilirsiniz, böylece onlar, alt sınıflar için çalışacak method implementasyonları içerir, yine de
+alt sınıfların 'append' kodlarına ihtiyacı olabilir. Alt sınıfınızda, üst sınıfın overriding methoduyla, anahtar
+kelime "super" kullanarak üst sınıfın sürümünü çağırabilirsiniz. Bu, "önce üst sınıfın sürümünü çalıştır, ardından kendi 
+kodumla devam et..." demek gibi bir şeydir.
 
 **Who gets the Porsche, who gets the porcelain? (how to Snow what a subclass can inherit from its superclass)**
 
@@ -380,9 +383,9 @@ public members are inherited
 private members are not inherited
 ```
 
-Bir alt sınıf, bir member'i miras aldığında, sanki alt sınıf kendisi bu member'i tanımlamış gibi davranır. Şekil (Shape)
-örneğinde, Kare (Square) sınıfı, üst sınıfından olan rotate() ve playSound() metodlarını miras alır ve dış dünyaya (
-diğer kodlara) göre Kare sınıfının sadece rotate() ve playSound() metotları vardır.
+Bir alt sınıf, bir member'i miras aldığında, sanki alt sınıf kendisi bu member'i tanımlamış gibi davranır. Shape
+örneğinde, Square sınıfı, üst sınıfından olan rotate() ve playSound() metodlarını miras alır ve dış dünyaya (
+diğer kodlara) göre Square sınıfının sadece rotate() ve playSound() metotları vardır.
 
 Bir sınıfın member'ları, sınıfta tanımlanan değişkenler ve metotların yanı sıra, üst sınıftan miras alınan her şeyi
 içerir. Kalıtım (inheritance) ile tasarım yaparken, kullanma veya kötüye kullanma (abusing) konusu önemlidir.
@@ -395,12 +398,11 @@ nedenle "Willow extends Tree" ifadesi mantıklıdır.
 
 **DO**, kalıtımı düşünmeyi, aynı genel türe ait birden çok sınıf arasında paylaşılması gereken davranışları (implemented
 code) olduğunda göz önünde bulundurmalısınız. Örneğin, Kare (Square), Daire (Circle) ve Üçgen (Triangle) tümü döndürme (
-rotate) ve ses çalma (play sound) işlemlerine ihtiyaç duyar, bu nedenle bu işlevselliği üst sınıf olan Şekil (Shape)
+rotate) ve ses çalma (play sound) işlemlerine ihtiyaç duyar, bu nedenle bu işlevselliği üst sınıf olan Shape
 içine yerleştirmek mantıklı olabilir ve bakım ve genişletilebilirlik açısından daha kolay olacaktır. Ancak, kalıtım,
 nesne yönelimli programlamanın önemli özelliklerinden biridir, ancak davranış yeniden kullanımını elde etmek için her
 zaman en iyi yol olmayabilir. Kalıtım sizi başlatır ve çoğu zaman doğru tasarım seçeneğidir, ancak tasarım kalıpları (
-design patterns), daha ince ve esnek diğer seçenekleri görmeye yardımcı olur. Eğer tasarım kalıpları hakkında bilgi
-sahibi değilseniz, bu kitaptan sonra "Head First Design Patterns" kitabı bu konuda iyi bir takip kitabı olacaktır.
+design patterns), daha ince ve esnek diğer seçenekleri görmeye yardımcı olur.
 
 **DO NOT**, başka bir sınıftaki kodu yeniden kullanmak için kalıtımı kullanmayın, eğer üst sınıf ile alt sınıf
 arasındaki ilişki yukarıda belirtilen iki kuraldan herhangi birini ihlal ediyorsa. Örneğin, varsayalım ki Alarm
@@ -460,7 +462,7 @@ supertype has.**
 
 Kalıtım yoluyla ilişkilendirilen bir sınıf grubu için ortak bir protokol veya arayüz tanımlarsınız. Üst sınıfta
 tanımlanan ve alt sınıflar tarafından miras alınan metotlar, diğer kodlara bir tür protokol bildirimi yapar
-ve "Tüm alt türlerim (yani alt sınıflarım) bu işleri yapabilir ve bu methodleri kullanarak bunları yaparlar" der. Başka
+ve "Tüm alt türlerim (yani alt sınıflarım) bu işleri yapabilir ve bu methodları kullanarak bunları yaparlar" der. Başka
 bir deyişle, bir contract (contract) oluşturursunuz. Örneğin, Animal sınıfı, tüm Animal alt türleri için ortak bir
 protokol oluşturabilir.
 
@@ -579,7 +581,7 @@ public class PetOwner {
         Vet vet = new Vet();
         Dog d = new Dog();
         Hippo h = new Hippo();
-        /* Veterinerin "giveShot()" (aşı yap) methodi, size verdiğiniz herhangi bir "Animal"ı kabul edebilir.
+        /* Veterinerin "giveShot()" (aşı yap) methodu, sizin verdiğiniz herhangi bir "Animal"ı kabul edebilir.
         Argüman olarak geçirdiğiniz nesne, "Animal" sınıfının bir alt sınıfı olduğu sürece işleyecektir. Bu durumda
         method çalışacaktır.*/
         vet.giveShot(d); // Dog's makeNoise() runs
@@ -601,21 +603,21 @@ Animal alt türleri hakkında hiçbir bilgiye sahip olmadan çalışmaya devam e
 Polimorfizm bu şekilde çalışma garantisi sağlar çünkü Java'daki nesne yönelimli programlama prensiplerine dayanır. Bu
 prensiplerin temelinde "kalıtım" ve "dynamic binding" gibi özellikler yer alır.
 
-Herhangi bir pratik sınır var mı alt sınıflandırma seviyelerinde? Ne kadar derinlere inebilirsin?
+Herhangi bir pratik sınır var mı? alt sınıflandırma seviyelerinde? Ne kadar derinlere inebilirsin?
 
-Evet, Java API'sine baktığınızda, çoğu kalıtım hiyerarşisinin geniş ama derin olmadığını göreceksiniz. Çoğu durumda,
+Java API'sine baktığınızda, çoğu kalıtım hiyerarşisinin geniş ama derin olmadığını göreceksiniz. Çoğu durumda,
 hiyerarşiler yalnızca bir veya iki seviye derinliğindedir, ancak istisnalar vardır (özellikle GUI sınıflarında).
 Genellikle kalıtım ağaçlarınızın daha sığ olmasının daha mantıklı olduğunu fark edeceksiniz, ancak sert bir sınır
 yoktur (ya da asla karşılaşmayacağınız bir sınır).
 
-Evet, düşündüğünüz gibi. Bir sınıfın kaynak koduna erişiminiz yoksa, ancak o sınıfın bir methodini değiştirmek
+Evet, düşündüğünüz gibi. Bir sınıfın kaynak koduna erişiminiz yoksa, ancak o sınıfın bir methodunu değiştirmek
 istiyorsanız, alt sınıflandırma (subclassing) kullanarak bunu yapabilirsiniz. Yani, mevcut "kötü" sınıfı genişletip,
-istediğiniz methodi kendi daha iyi kodunuzla override edebilirsiniz
+istediğiniz methodu kendi daha iyi kodunuzla override edebilirsiniz
 
 Bir sınıfın özel (private) olarak işaretlenebileceği, ancak iç sınıf (inner class) adı verilen çok özel bir durum
 dışında böyle bir şeyin olmadığı doğrudur. Ancak, üç şey bir sınıfın alt sınıf alınmasını engelleyebilir.
 
-İlk engel, erişim kontrolüdür. Bir sınıfın özel (private) olarak işaretlenemese de, sınıf genel olarak erişimi
+İlk engel, erişim kontrolüdür. Bir sınıf özel (private) olarak işaretlenemese de, sınıfın genel olarak erişimi
 olmayabilir (public olarak işaretlenmemişse). Bu durumda, diğer paketlerdeki sınıflar bu sınıfı alt sınıf alamaz veya
 hatta kullanamazlar. Sadece aynı paketteki sınıflar bu sınıfı alt sınıf alabilir.
 
@@ -645,7 +647,7 @@ sınıf, bu methodu kendisine uygun bir şekilde değiştiremez veya override ed
 
 Bir üst sınıftan bir methodu override ettiğinizde, contract'i yerine getirmeyi kabul etmiş olursunuz. Bu contract,
 örneğin "Hiçbir argüman almayıp bir boolean değeri döndürüyorum" şeklinde olabilir. Başka bir deyişle, override
-ettiğinizde methodun argümanları ve dönüş türleri dış dünya tarafından, üst sınıftaki geçersiz kılınan methoda tam
+ettiğinizde methodun argümanları ve dönüş türleri dış dünya tarafından, üst sınıftaki override edilen methoda tam
 olarak benzemelidir. Methodlar contract'dir.
 
 ![img_23.png](../Images/Chapter7Images/img_23.png)
