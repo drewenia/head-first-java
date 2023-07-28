@@ -4,13 +4,12 @@ Inheritance sadece başlangıçtır. Polimorfizmi kullanabilmek için Interfacel
 gerekiyor. Basit Inheritancedan ötesine geçmemiz ve yalnızca Interface özelliklerine uygun şekilde tasarlayarak ve
 kodlayarak esneklik ve genişletilebilirlik düzeyine ulaşmamız gerekiyor. Java'nın en harika kısımlarından bazıları
 Interfaceler olmadan bile mümkün olmazdı, bu yüzden kendiniz Interfacelerle tasarlamasanız bile yine de onları kullanmak
-zorunda kalacaksınız. Ama onlarla tasarlamak isteyeceksiniz. Onlarla tasarlamak zorunda kalacaksınız. Onlarsız nasıl
-yaşadığınızı merak edeceksiniz. Peki bir Interface nedir? %100 abstract bir sınıftır. Bir abstract sınıf nedir? Bir
-sınıfın
-instance'i alınamayan bir sınıftır. Bu ne işe yarar? Birkaç dakika içinde göreceksiniz. Ancak, bir önceki bölümün sonunu
+zorunda kalacaksınız. Onlarla tasarlamak isteyeceksiniz. Onlarla tasarlamak zorunda kalacaksınız. Onlarsız nasıl
+yaşadığınızı merak edeceksiniz. Peki bir Interface nedir? %100 abstract bir sınıftır. Bir abstract sınıf nedir?
+Instance'i alınamayan bir sınıftır. Bu ne işe yarar? Birkaç dakika içinde göreceksiniz. Ancak, bir önceki bölümün sonunu
 düşünürseniz ve nasıl polimorfik argümanlar kullandığımızı hatırlarsanız, tek bir Vet methodunun tüm türlerden olan
 Animal alt sınıflarını alabilmesi, işte o sadece yüzeyi kaşımaktı. Interfaceler, polimorfizmdeki "poly"dir (çok
-biçimlilik). "abstract"taki "ab"dir (abstract). Java'daki kafeindir.
+biçimlilik). "abstract"taki "ab"dir (abstract).
 
 ### Did we forget about something when we designed this?
 
@@ -43,28 +42,26 @@ Yeni bir animal nesnesi ne yapar? nasıl görünür?
 
 ![img_3.png](../Images/Chapter8Images/img_3.png)
 
-Instance variables'ları nelerdir? Bazı sınıfların sadece instantiate edilmemesi gerekir!
+Bazı sınıfların sadece instantiate edilmemesi gerekir!
 
 Bir Kurt nesnesi, Bir Nil Atı nesnesi veya Bir Kaplan nesnesi oluşturmak mantıklıdır, ancak tam olarak bir Animal
 nesnesi nedir? Onun şekli ne? Rengi, boyutu, bacak sayısı... Animal türünde bir nesne oluşturmaya çalışmak, kabus gibi
 bir Star Trek transporter kazası gibidir. Işınlanma sürecinde bir yerlerde tampona bir şeylerin kötü bir şekilde
 karıştığı an. Ancak bununla nasıl başa çıkacağız? Kalıtım ve polimorfizm için bir Animal sınıfına ihtiyacımız var. Ancak
-sadece Animal sınıfının kendisini değil, daha az abstract alt sınıflarını nesneleştirmek istiyoruz. Kaplan nesneleri ve
+sadece Animal sınıfının kendisine değil, daha az abstract alt sınıflarını nesneleştirmek istiyoruz. Kaplan nesneleri ve
 Aslan nesneleri istiyoruz, Animal nesneleri değil.
 
 Neyse ki, bir sınıfın hiçbir zaman instantiated olmamasını sağlamak için basit bir method var. Başka bir deyişle, o
-türde "new" ifadesini kullanarak bir nesne oluşturmayı engellemek için. Sınıfı abstract (abstract) olarak
-işaretlediğinizde, derleyici bu türden herhangi bir kodun, herhangi bir yerde, bu türün bir örneğini oluşturmasını
-engeller.
+türde "new" ifadesini kullanarak bir nesne oluşturmayı engellemek için. Sınıfı abstract olarak işaretlediğinizde,
+derleyici bu türden herhangi bir kodun, herhangi bir yerde, bu türün bir örneğini oluşturmasını engeller.
 
 Abstract sınıfları referans türü olarak kullanmak mümkündür ve aslında abstract sınıfları bu nedenle
 kullanırız. Polimorfik argüman veya dönüş türü olarak kullanmak, ya da polimorfik bir array oluşturmak gibi durumlarda
 abstract sınıfların kullanımı oldukça yaygındır.
 
-Sınıf kalıtım yapısını tasarlarken, hangi sınıfların abstract (abstract) ve hangilerinin concrete (concrete) olduğuna
-karar
-vermeniz gerekir. Concrete sınıflar, örneklendirilmek için yeterince belirli olanlardır. Bir sınıfın concrete olması, o
-türden nesneler oluşturmanın uygun olduğu anlamına gelir.
+Sınıf kalıtım yapısını tasarlarken, hangi sınıfların abstract be hangilerinin concrete olduğuna karar vermeniz gerekir.
+Concrete sınıflar, örneklendirilmek için yeterince belirli olanlardır. Bir sınıfın concrete olması, o türden nesneler
+oluşturmanın uygun olduğu anlamına gelir.
 
 Bir class'ı abstract hale getirmek kolaydır. abstact keyword'unu class declaration'dan önce yazarsınız
 
@@ -110,8 +107,9 @@ Bir abstract olmayan sınıfa "concrete sınıf" denir. Animal kalıtım ağacı
 abstract yaparsak, Hipopotam (Hippo), Kurt (Wolf), Dog (Dog), Kaplan (Tiger),Aslan (Lion) ve Kedi (Cat) concrete alt
 sınıflar olarak kalır.
 
-Java API'de dolaştığınızda, özellikle GUI (Grafik Kullanıcı Interfaceü) kütüphanesinde birçok abstract sınıf
+Java API'de dolaştığınızda, özellikle GUI (Grafik Kullanıcı Interface) kütüphanesinde birçok abstract sınıf
 bulacaksınız.
+
 GUI bileşenleri nasıl görünür? Component (Bileşen) sınıfı, düğmeler, metin alanları, kaydırma çubukları, iletişim
 kutuları gibi GUI ile ilgili sınıfların üst sınıfıdır. Genel olarak, Component sınıfının örneği oluşturulup ekrana
 konulmaz; bunun yerine JButton, JTextArea, JScrollBar, JDialog gibi concrete alt sınıfların örnekleri oluşturulur.
@@ -145,17 +143,17 @@ Belirli bir abstract sınıfta bazı davranışların, yani methodların, ancak 
 uygulanması mantıklı olabilir. Yani başka bir deyişle, alt sınıflar için yararlı olabilecek genel bir method
 implementasyonunu düşünemiyorsanız, o methodu abstract yapabilirsiniz.
 
-Örnek olarak, genel bir "eat()" methodi nasıl olabilir:
+Örnek olarak, genel bir "eat()" methodu nasıl olabilir:
 
 ```public abstract void eat();``` herhangi bir method body'si içermez
 
-abstract bir method, body'inde kod olmayan bir methoddur. Zaten abstract methodda, methodun anlamlı bir kod
+abstract bir method, body'sinde kod olmayan bir methoddur. Zaten abstract methodda, methodun anlamlı bir kod
 içermeyeceğine karar verdiğiniz için süslü parantezler {} kullanılmaz. Sadece method bildirimini noktalı virgülle
 bitirirsiniz.
 
 Eğer abstract bir method tanımlarsanız, aynı zamanda sınıfı da abstract olarak işaretlemelisiniz. abstract olmayan bir
 sınıfta abstract bir method olamaz. Eğer bir sınıfta en az bir abstract method bulunuyorsa, o sınıfı mutlaka abstract
-olarak tanımlamalısınız. Ancak, abstract bir sınıfta hem abstract hem de abstract olmayan methodleri bir arada
+olarak tanımlamalısınız. Ancak, abstract bir sınıfta hem abstract hem de abstract olmayan methodları bir arada
 kullanabilirsiniz.
 
 Inheritable method uygulamaları (diğer bir deyişle, gerçek kodları içeren methodler), uygun olduğunda üst sınıfa
@@ -166,9 +164,9 @@ protokolün bir kısmını tanımlamış olmaktır.
 Polimorfizm, üst sınıf türünü (çoğunlukla abstract) bir method argümanı, return type veya array türü olarak kullanma
 yeteneğini ifade eder. Bu şekilde, yeni alt tipleri (örneğin yeni bir Animal alt sınıfı) programınıza
 ekleyebilirsiniz, ancak bu yeni tiplerle ilgilenmek için mevcut methodlari yeniden yazmanız gerekmez veya yeni
-methodler eklemeniz gerekmez. Eğer Vet sınıfı, metodları için Animal türünü kullanmazsa, yeni alt tipler için ayrı ayrı
-methodler oluşturmanız gerekecekti! Bir tane Lion için, bir tane Wolf için, bir tane... fikri veriliyor. Bu yüzden
-abstract bir methodla, "Bu türün tüm alt tipleri BU methoda sahip" demek, polimorfizm için faydalıdır.
+methodler eklemeniz gerekmez. Eğer Vet sınıfı, methodları için Animal türünü kullanmazsa, yeni alt tipler için ayrı ayrı
+methodlar oluşturmanız gerekecekti! Bir tane Lion için, bir tane Wolf için, bir tane... Bu yüzden abstract bir
+methodla, "Bu türün tüm alt tipleri BU methoda sahip" demek, polimorfizm için faydalıdır.
 
 ### Implementing an abstract method is just like overriding a method.
 
@@ -176,13 +174,14 @@ Abstract methodlarin bir gövdesi yoktur; yalnızca polymorphism için var olurl
 sınıfın tüm Abstract methodlari implemente etmesi gerektiği anlamına gelir.
 
 Ancak, kendiniz de Abstract olacak şekilde işi başkalarına devredebilirsiniz. Örneğin, hem Animal hem de Canine Abstract
-ise ve her ikisi de Abstract methodlara sahipse, Canine sınıfı Animal'dan Abstract methodleri implemente etmek zorunda
+ise ve her ikisi de Abstract methodlara sahipse, Canine sınıfı Animal'dan Abstract methodları implemente etmek zorunda
 değildir.
+
 Ancak, Dog gibi ilk Concrete alt sınıfa geldiğimizde, bu alt sınıf hem Animal hem de Canine'den tüm Abstract methodlari
 implemente etmek zorundadır.
 
 Abstract bir sınıf hem Abstract hem de Abstract olmayan methodlara sahip olabilir, bu nedenle Canine örneğin, Animal'dan
-bir Abstract methodu implemente ederek Dog sınıfının implemente etmesine gerek kalmayabilir. Ancak Canine, Animal'daki
+bir Abstract methodu implemente eder, Dog sınıfının implemente etmesine gerek kalmayabilir. Ancak Canine, Animal'daki
 Abstract methodlara dair bir şey söylemezse, Dog sınıfı Animal'ın tüm Abstract methodlarını implemente etmek zorundadır.
 
 Abstract methodu implemente etmeniz gerektiğinde, bunun anlamı bir gövde sağlamanızdır. Bu, sınıfınızda Abstract
@@ -236,8 +235,8 @@ tabii ki aynı, ancak kodun her yerinde tür Dog'dan Animal'a değişti).
 ```
 public class MyAnimalList {
     /* Endişelenmeyin. Gerçekten yeni bir Animal nesnesi oluşturmuyoruz; yeni bir Animal tipinde bir dizi nesnesi
-    oluşturuyoruz. (Unutmayın, abstract bir türün yeni bir örneğini oluşturamazsınız, ancak o türde tutan bir dizi nesnesi
-    oluşturabilirsiniz).*/
+    oluşturuyoruz. (Unutmayın, abstract bir türün yeni bir örneğini oluşturamazsınız, ancak o türü tutan 
+    bir array nesnesi oluşturabilirsiniz).*/
     Animal[] animals = new Animal[5];
     private int nextIndex;
 
@@ -284,8 +283,8 @@ Class Object, tüm sınıfların ana sınıfıdır ve her şeyin üst sınıfıd
 polimorfik türü alan ve döndüren methodlara sahip bir sınıf oluşturmanız gerekmektedir.
 Java'daki her şey için ortak bir üst sınıf olmaması durumunda, Java geliştiricilerinin ArrayList sınıfını yazarken
 bilmedikleri özel türleri kabul edebilecek methodlara sahip sınıflar oluşturmaları mümkün olmazdı. Dolayısıyla, baştan
-itibaren Class Object'den alt sınıflar oluşturuyorsunuz ve bunu farkında bile değildiniz. Yazdığınız her sınıf, Object'i
-genişletir ve bunu söylemek zorunda bile kalmadan yaparsınız. Ancak bir sınıfı şu şekilde düşünebilirsiniz:
+itibaren Class Object'den alt sınıflar oluşturuyorsunuz ve bunun farkında bile değildiniz. Yazdığınız her sınıf,
+Object'i genişletir ve bunu söylemek zorunda bile kalmadan yaparsınız. Ancak bir sınıfı şu şekilde düşünebilirsiniz:
 
 ```public class Dog extends Object()```
 
@@ -296,7 +295,7 @@ Dolayısıyla, "Dog" "Object"i doğrudan extend etmez (ancak dolaylı olarak ext
 geçerlidir, ancak "Animal" "Object"i doğrudan extend eder.
 
 ArrayList'in birçok methodu, en üst düzeydeki polimorfik tür olan "Object" türünü kullanır. Java'daki her sınıf, "
-Object" sınıfının alt sınıfı olduğundan, ArrayList'in bu methodleri her türlü nesneyi kabul edebilir. Java 5.0'dan
+Object" sınıfının alt sınıfı olduğundan, ArrayList'in bu methodları her türlü nesneyi kabul edebilir. Java 5.0'dan
 itibaren, "get()" ve "add()" methodları burada gösterildiği gibi biraz farklı görünüyor olabilir, ancak şu
 an için bu şekilde düşünmek yeterlidir. Daha sonra tam hikayeye daha detaylı gireceğiz. Yani, ArrayList sınıfındaki çoğu
 method, Object türünü kullanarak herhangi bir nesneyi alabilir ve işleyebilir. Bu, Java'daki esnek programlama ve çok
@@ -372,7 +371,7 @@ System.out.println(c.toString());
 ![img_11.png](../Images/Chapter8Images/img_11.png)
 
 Object sınıfı abstract olmayan bir sınıftır, çünkü diğer sınıfların, methodlari override etme zorunluluğu olmadan,
-kutudan çıkan şekliyle kalıtım alıp kullanabileceği method uygulama kodlarına sahiptir.
+kutudan çıkan şekliyle kalıtım alıp kullanabileceği method implementasyon kodlarına sahiptir.
 
 Object içindeki methodlar override edilebilir mi? Object sınıfında bazı methodlar "final" olarak işaretlenmiştir, bu da
 onları override etmenize izin vermez. Bununla birlikte, hashCode(), equals() ve toString() gibi methodlarinizi kendi
@@ -438,8 +437,7 @@ ArrayList<Dog> myDogArrayList = new ArrayList<Dog>(); // dog nesnelerini tutmak 
 Dog aDog = new Dog(); // make a dog
 myDogArrayList.add(aDog); // Dog'u myDogArrayList'ine ekle
 
-// Listedeki Dog'u yeni bir Dog referans değişkenine atayın. (Bunu, get() methodunun, ArrayList<Dog> kullandığınız için 
-// Dog dönüş türünü bildiren şekilde tanımladığınızı düşünün.)
+// Listedeki Dog'u yeni bir Dog referans değişkenine atayın. (Bunu, get() methodu ile yapın)
 Dog d = myDogArrayList.get(0); 
 ```
 
@@ -472,7 +470,7 @@ kullanmak gerekir.
 ### When a Dog won’t act like a Dog
 
 Her şeyin Object olarak polimorfik bir şekilde işlenmesinin dezavantajı, nesnelerin gerçek özünü (essence) kaybeder gibi
-görünmeleridir, ancak bu kayıp kalıcı değildir. Dog, Dogliğini kaybedermiş gibi görünür. Şimdi, aynı Dog nesnesini
+görünmeleridir, ancak bu kayıp kalıcı değildir. Dog, Dog'luğunu kaybedermiş gibi görünür. Şimdi, aynı Dog nesnesini
 döndüren ancak dönüş türünü Dog yerine Object olarak bildiren bir metoda Dog nesnesini geçirdiğimizde neler olacağını
 görelim.
 
@@ -637,8 +635,8 @@ Animal nesneleri hakkında bir Bilim Fuarı Öğreticisi için kullanmanızı is
 kullanılabilir bir durum olabilir.
 
 Ancak, daha sonra sizi bir Evcil Animal Mağazası programında kullanmak istediğinde, sorunlar ortaya çıkabilir. Çünkü
-Dog sınıfında mevcut olan özellikler ve metotlar bir Evcil Animal için gerekli olan beFriendly() ve play() gibi
-davranışları içermeyebilir.
+Dog sınıfında mevcut olan özellikler ve metotlar bir Animal için gerekli olan beFriendly() ve play() gibi davranışları
+içermeyebilir.
 
 Şimdi, Dog sınıfı programcısı olarak diyelim ki ekstra metotları Dog sınıfına eklemek istiyorsunuz. Bu durumda varolan
 metotlara dokunmadan, sadece Dog nesnelerinin çağrıldığı başka kodları bozmamış olursunuz. Ancak bu yaklaşımın bazı
@@ -648,7 +646,7 @@ Birincisi, Dog sınıfını daha fazla sorumlulukla doldurarak sınıfı şişir
 Bu, sınıfın okunabilirliğini ve bakımını zorlaştırabilir.
 
 İkincisi, Dog sınıfının yeni davranışları, yalnızca bir alt kümesi için uygun olan bir alt sınıfın işlevselliğini
-genişletebilir. Evcil Animallar Mağazası programında sadece Dog'lar için geçerli olan davranışları, diğer Animallar
+genişletebilir. Evcil Animal Mağazası programında sadece Dog'lar için geçerli olan davranışları, diğer Animallar
 için de içeren bir sınıfı zorunlu kılabilirsiniz. Bu, sınıf hiyerarşisinde karmaşıklığa ve gereksiz kod tekrarına neden
 olabilir.
 
@@ -657,8 +655,8 @@ davranışları bu alt sınıflara eklemek, daha temiz ve esnek bir kod tasarım
 OOP'nin güçlü yönlerinden biridir.
 
 "Eğer Dog sınıfının programcısı olsaydım ve Dog'un aynı zamanda Evcil Animal işlevlerini de yapabilmesi için
-değişiklik yapmam gerekiyorsa, Dog sınıfına yeni Evcil Animal davranışlarını (metodlarını) eklemek yeterli olacaktır ve
-bu değişiklik başka birinin kodunu bozmaz. Ancak, bu bir Evcil Animal Dükkanı programı. Burada sadece Dog yok! Ve
+değişiklik yapmam gerekseydi, Dog sınıfına yeni Evcil Animal davranışlarını (metodlarını) eklemek yeterli olacaktı ve
+bu değişiklik başka birinin kodunu bozmayacaktı. Ancak, bu bir Evcil Animal Dükkanı programı. Burada sadece Dog yok! Ve
 birisi Dog sınıfını vahşi Dog'ları içeren bir programda kullanmak isterse ne olacak? Seçenekleriniz neler olabilir ve
 Java'nın nasıl ele alacağını düşünmeden, sadece Animal sınıflarınızı Evcil Animal davranışlarını içerecek şekilde nasıl
 değiştireceğinizi hayal etmeye çalışın. Şimdi durun ve düşünün, her şeyi açıklamaya başlayacağım bir sonraki sayfaya
@@ -677,7 +675,7 @@ olarak kullanılabilecek.
 
 **CONS:**
 
-Peki... Son olarak ne zaman bir su aygırısını Pet dükkanında gördün? Aslan? Kurt? Evcil olmayan hayvanlara
+Peki... Son olarak ne zaman bir su aygırını Pet dükkanında gördün? Aslan? Kurt? Evcil olmayan hayvanlara
 Pet methodları vermek tehlikeli olabilir. Ayrıca, muhtemelen Köpek ve Kedi gibi Pet sınıflarına
 dokunmamız gerekecek, çünkü (en azından evimizde) Köpekler ve Kediler Pet davranışlarını oldukça farklı bir
 şekilde sergilerler.
@@ -699,7 +697,7 @@ haline getirebilirler.
 
 **CONS:**
 
-Çünkü Animal sınıfındaki Pet methodlari tamamen abstract olduğundan, concrete Animal alt sınıfları bunların
+Animal sınıfındaki Pet methodlari tamamen abstract olduğundan, concrete Animal alt sınıfları bunların
 hepsini implemente etmek zorundadır. (Unutmayın, tüm abstract methodlar, miras ağacındaki ilk concrete alt sınıf
 tarafından uygulanmak ZORUNDADIR.) Ne kadar da zaman kaybı! Her bir concrete olmayan hayvan sınıfına, ayrıca tüm
 gelecekteki alt sınıflara da her Pet methodunu teker teker girmeniz gerekecek.
@@ -725,7 +723,7 @@ uygulayabilir, ancak diğer hayvanların bu Methodler hakkında bilgi sahibi olm
 **CONS:**
 
 Bu yaklaşımda iki büyük sorun var. İlk olarak, bir protokole uymayı kabul etmeniz ve mevcut ve gelecekteki tüm Pet
-sınıflarını bu protokolü BİLMELERİ gerekecektir. Protokol dediğimiz şey, tüm Petların sahip olması
+sınıflarının bu protokolü BİLMELERİ gerekecektir. Protokol dediğimiz şey, tüm Petların sahip olması
 gereken belirli Methodlardır. Ancak bu protokolün desteklenecek herhangi bir şeyi yoktur. Peki ya programcılardan biri
 biraz yanlış yaparsa? Örneğin, bir Method bir integer alması gereken bir yerde bir array alırsa? Veya beFriendly()
 yerine doFriendly() olarak adlandırırsa? Çünkü bu bir sözleşmede belirtilmediğinden, derleyici doğru bir şekilde
@@ -737,10 +735,10 @@ anlamına gelir. Bu nedenle, uygun davranışların garanti altına alınmadığ
 duruma yol açabilir.
 
 İkinci problemde Pet methodlarını farklı sınıflara yerleştirerek, polimorfizm özelliğini etkin bir şekilde kullanma
-imkanını kaybediyoruz. Polimorfizm, ortak bir Interface veya miras hiyerarşisini paylaşan farklı sınıfların nesnelerini
-ortak bir temel sınıf nesnesi gibi işlememizi sağlar. Bu, tüm alt sınıfların nesnelerinde temel sınıfın veya Interfaceün
-tanımladığı methodları çağırabilmemizi sağlar. Ancak, Pet methodlarını farklı sınıflara dağıtarak bu yeteneğimizi
-kaybederiz.
+imkanını kaybettirir. Polimorfizm, ortak bir Interface veya miras hiyerarşisini paylaşan farklı sınıfların nesnelerini
+ortak bir temel sınıf nesnesi gibi işlememizi sağlar. Bu, tüm alt sınıfların nesnelerinde temel sınıfın veya
+Interface'in tanımladığı methodları çağırabilmemizi sağlar. Ancak, Pet methodlarını farklı sınıflara dağıtarak bu
+yeteneğimizi kaybederiz.
 
 ![img_23.png](../Images/Chapter8Images/img_23.png)
 
@@ -775,7 +773,7 @@ Interface'i" gibi bir sınıfın API'si anlamında kullanılmaz; burada "interfa
 kelimedir. Java'da bir Interface, Multiple Inheritance sorununu çözer ve Deadly Diamond of Death (DDD) ile ilgili
 sıkıntıları yaşamadan Multiple Inheritance'ın sağladığı polimorfik faydaların birçoğunu sunar.
 
-Interfacelerin DDD'yi nasıl atlatığının şaşırtıcı derecede basit bir yolu vardır: Tüm metotları abstract yapın! Bu
+Interfacelerin DDD'yi nasıl atlatabildiğinin şaşırtıcı derecede basit bir yolu vardır: Tüm metotları abstract yapın! Bu
 şekilde, alt sınıf bu metotları uygulamak zorunda kalır (hatırlayın ki abstract metotlar, ilk abstract alt sınıf
 tarafından uygulanmalıdır), bu nedenle çalışma zamanında JVM hangi miras alınan versiyonun çağrılacağı konusunda
 karışıklık yaşamaz. Yani, Java'da bir Interface oluşturarak, hem Multiple Inheritance'ın getirdiği karmaşıklıklardan
@@ -892,7 +890,7 @@ değiştirmek yerine, sadece ekstra belirli kodlar eklemek istiyorsanız?
 
 "Extends" kelimesinin anlamını düşünelim. İyi Nesne Tabanlı tasarımın bir alanı, override edilmesi amaçlanan concrete
 kodu nasıl tasarlayacağınıza odaklanır. Başka bir deyişle, örneğin abstract bir sınıfta method kodları yazarsınız ve bu
-kodlar tipik concrete implementasyonları destekleyecek kadar geneldir. Ancak, concrete kod, alt sınıflara özgü tüm
+kodlar tipik concrete implementasyonlarını destekleyecek kadar genelse. Ancak, concrete kod, alt sınıflara özgü tüm
 işleri ele almak için yeterli olmaz. Bu nedenle, alt sınıf, metodu override eder ve geri kalan kodu ekleyerek
 genişletir. "Super" anahtar kelimesi, alt sınıf içinde override edilen bir üst sınıf sürümünü çağırmak için kullanılır.
 
@@ -929,16 +927,16 @@ public class BuzzwordsReport extends Report{
 * Abstract bir sınıf hem Abstract hem de Abstract olmayan metotlara sahip olabilir.
 * Bir sınıfın en az bir Abstract metodu varsa, sınıfın Abstract olarak işaretlenmesi gerekir.
 * Abstract bir methodun gövdesi yoktur ve bildirim noktalı virgülle (kıvrık parantezler olmadan) biter.
-* Tüm Abstract metotlar, miras ağacındaki ilk somut alt sınıfta uygulanmalıdır.
+* Tüm Abstract metotlar, miras ağacındaki ilk concrete alt sınıfta uygulanmalıdır.
 * Java'da her sınıf, doğrudan veya dolaylı olarak java.lang.Object sınıfının bir alt sınıfıdır.
 * Metotlar, Object argümanları ve/veya dönüş tipleri ile bildirilebilir.
 * Bir nesne üzerinde yalnızca o nesnenin referans değişkeni türündeki sınıftaki (veya arayüzdeki) metotları
   çağırabilirsiniz, gerçek nesne türünden bağımsız olarak. Yani, Object türünden bir referans değişkeni yalnızca Object
   sınıfında tanımlı metotları çağırmak için kullanılabilir, referansın işaret ettiği nesnenin türüne bakılmaksızın.
 * Bir Object türünden referans değişkeni, cast yapılmadan başka bir referans türüne atanamaz. Cast, bir referans
-  değişkenini bir alt türden bir referans değişkenine atamak için kullanılabilir, ancak çalışma zamanında cast işlemi
-  başarısız olur ve heap üzerindeki nesne, cast işlemiyle uyumlu bir tür değilse.
-  Örnek: Dog d = (Dog) x.getObject(aDog);
+  değişkenini bir alt türden bir referans değişkenine atamak için kullanılabilir, ancak çalışma zamanında heap
+  üzerindeki nesne, cast işlemiyle uyumlu bir tür değilse cast işlemi başarısız olur. Örnek: Dog d = (Dog) x.getObject(
+  aDog);
 * Tüm nesneler, ArrayList<Object> türünden çıkar ve Object türü olarak döner (yani, sadece bir Object referans
   değişkeniyle referans alınabilirler, bir cast işlemi yapılmadığı sürece).
 * Java'da multiple inheritance'a izin verilmez, çünkü "Ölümcül Elmas Sorunu" olarak adlandırılan sorunlarla ilişkilidir.
@@ -948,7 +946,7 @@ public class BuzzwordsReport extends Report{
 * Bir arayüz oluşturmak için class yerine interface anahtar kelimesini kullanın.
 * Bir Interface'i implements anahtar kelimesiyle implemente edin.
   Örnek: Dog implements Pet
-* Sınıfınız birden fazla Interface'i uygulayabilir.
+* Sınıfınız birden fazla Interface'i implemente edebilir.
 * Bir Interface'i implemente eden bir sınıf, Interface'in tüm metotlarını uygulamak zorundadır, çünkü tüm interface
   metotları otomatik olarak public ve abstract kabul edilir.
 * Bir alt sınıfta bir metodu override ettikten sonra üst sınıfın sürümünü çağırmak için super anahtar kelimesini
