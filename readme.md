@@ -13,3 +13,5 @@ Chapter 6 - [Get To Know The Java API](MarkdownFiles/getTheKnowTheJavaApi.md)
 Chapter 7 - [Inheritance And Polymorphism](MarkdownFiles/inheritanceAndPolymorphism.md)
 
 Chapter 8 - [Interfaces and Abstract classes](MarkdownFiles/interfacesAndAbstractClasses.md)
+
+Chapter 9 - [Constructors and Garbage Collection](MarkdownFiles/constructorsAndGarbageCollection.md)
