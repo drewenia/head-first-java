@@ -15,3 +15,5 @@ Chapter 7 - [Inheritance And Polymorphism](MarkdownFiles/inheritanceAndPolymorph
 Chapter 8 - [Interfaces and Abstract classes](MarkdownFiles/interfacesAndAbstractClasses.md)
 
 Chapter 9 - [Constructors and Garbage Collection](MarkdownFiles/constructorsAndGarbageCollection.md)
+
+Chapter 10 - [Numbers And Statics](MarkdownFiles/numbersAndStatics.md)
