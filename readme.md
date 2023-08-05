@@ -17,3 +17,5 @@ Chapter 8 - [Interfaces and Abstract classes](MarkdownFiles/interfacesAndAbstrac
 Chapter 9 - [Constructors and Garbage Collection](MarkdownFiles/constructorsAndGarbageCollection.md)
 
 Chapter 10 - [Numbers And Statics](MarkdownFiles/numbersAndStatics.md)
+
+Chapter 11 - [Exception Handling](MarkdownFiles/exceptionHandling.md)
