@@ -21,3 +21,5 @@ Chapter 10 - [Numbers And Statics](MarkdownFiles/numbersAndStatics.md)
 Chapter 11 - [Exception Handling](MarkdownFiles/exceptionHandling.md)
 
 Chapter 12 - [Getting GUI](MarkdownFiles/gettingGUI.md)
+
+Chapter 13 - [Using Swing](MarkdownFiles/usingSwing.md)
