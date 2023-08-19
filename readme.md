@@ -25,3 +25,5 @@ Chapter 12 - [Getting GUI](MarkdownFiles/gettingGUI.md)
 Chapter 13 - [Using Swing](MarkdownFiles/usingSwing.md)
 
 Chapter 14 - [Serialization and File I/O](MarkdownFiles/serializationAndFileIO.md)
+
+Chapter 15 - [Networking and threads](MarkdownFiles/serializationAndFileIO.md)
