@@ -27,3 +27,6 @@ Chapter 13 - [Using Swing](MarkdownFiles/usingSwing.md)
 Chapter 14 - [Serialization and File I/O](MarkdownFiles/serializationAndFileIO.md)
 
 Chapter 15 - [Networking and threads](MarkdownFiles/serializationAndFileIO.md)
+
+Chapter 16 - [Collections and Generics](MarkdownFiles/collectionsAndGenerics.md)
+
