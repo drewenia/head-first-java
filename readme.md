@@ -30,3 +30,5 @@ Chapter 15 - [Networking and threads](MarkdownFiles/serializationAndFileIO.md)
 
 Chapter 16 - [Collections and Generics](MarkdownFiles/collectionsAndGenerics.md)
 
+Chapter 17 - [Package, Jars and Deployment](MarkdownFiles/packageJarsAndDeployment.md)
+
