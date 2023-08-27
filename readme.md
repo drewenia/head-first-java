@@ -32,3 +32,5 @@ Chapter 16 - [Collections and Generics](MarkdownFiles/collectionsAndGenerics.md)
 
 Chapter 17 - [Package, Jars and Deployment](MarkdownFiles/packageJarsAndDeployment.md)
 
+Chapter 18 - [Remote Deployment with RMI](MarkdownFiles/remoteDeploymentWithRMI.md)
+
